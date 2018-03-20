@@ -20,8 +20,6 @@ import com.appdirect.jbilling.common.ResponseUtil;
 import com.appdirect.jbilling.exceptions.NotFoundException;
 import com.appdirect.jbilling.product.base.ProductService;
 
-import io.swagger.annotations.Api;
-
 /**
  * Controller for products
  * 
