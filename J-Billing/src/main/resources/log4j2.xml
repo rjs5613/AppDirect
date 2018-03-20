@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="path">logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+				>
+			</PatternLayout>
+		</Console>
+		<File name="App-Appender" fileName="${path}/jbilling_log.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="Spring-Appender" fileName="${path}/spring_log.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="hibernate-Appender" fileName="${path}/hibernate_log.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="org.springframework" level="info" additivity="false">
+			<AppenderRef ref="Spring-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Logger name="org.hibernate" level="info" additivity="false">
+			<AppenderRef ref="hibernate-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Logger name="com.appdirect" level="debug" additivity="false">
+			<AppenderRef ref="App-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Root >
+			<AppenderRef ref="App-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Root>
+	</Loggers>
+</Configuration>
